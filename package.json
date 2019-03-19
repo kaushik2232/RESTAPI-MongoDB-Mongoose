@@ -1,0 +1,27 @@
+{
+  "name": "restapi-mongodb-mongoose",
+  "version": "1.0.0",
+  "description": "A Node.js MondoDB-Mongoose-RestAPI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaushik2232/RESTAPI-MongoDB-Mongoose.git"
+  },
+  "keywords": [
+    "node",
+    "RESTFUL",
+    "API"
+  ],
+  "author": "Kaushik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kaushik2232/RESTAPI-MongoDB-Mongoose/issues"
+  },
+  "homepage": "https://github.com/kaushik2232/RESTAPI-MongoDB-Mongoose#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
