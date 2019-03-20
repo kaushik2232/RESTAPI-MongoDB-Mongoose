@@ -1,5 +1,7 @@
 const express = require("express");
 const router = express.Router();
+const Product = require('../models/product');
+const mongoose = require('mongoose');
 
 router.get('/', (req, res, next) => {
   res.status(200).json({
@@ -8,10 +10,19 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-    const product = {
+    //store data
+    const product = new Product({
+        _batchno: new mongoose.Types.prodId(),
         madeof: req.body.madeof,
         type: req.body.type
-    };
+    });
+    //save then stores in the DB by save method
+    product
+        .save()
+        .then(result => {
+        console.log(result);
+    })
+    .catch(error => console.log(error));
     res.status(201).json({
         message:'Handling POST requets to /products',
         postedProduct: product
