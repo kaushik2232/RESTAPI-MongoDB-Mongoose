@@ -12,7 +12,7 @@ router.get('/', (req, res, next) => {
 router.post('/', (req, res, next) => {
     //store data
     const product = new Product({
-        _batchno: new mongoose.Types.prodId(),
+        _batchno: new mongoose.Types.ObjectId(),
         madeof: req.body.madeof,
         type: req.body.type
     });

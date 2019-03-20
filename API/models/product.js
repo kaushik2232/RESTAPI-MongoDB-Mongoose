@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const dbschema = mongoose.Schema({
-    _batchno: mongoose.Schema.Types.prodId,
+    _batchno: mongoose.Schema.Types.ObjectId,
     madeof: String,
     type: String
 });
