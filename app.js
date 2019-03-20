@@ -1,9 +1,12 @@
 const express = require('express');
 const app = express();
 const morgan = require('morgan');
+const bodyParser = require('body-parser');
 const productRoutes = require('./API/Routes/products')
 const orderRoutes = require('./API/Routes/order')
 app.use(morgan('dev'));
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 app.use('/products', productRoutes);  
 app.use('/order', orderRoutes); 
 app.use((req, res, next) => {
