@@ -12,7 +12,7 @@ router.get('/', (req, res, next) => {
 router.post('/', (req, res, next) => {
     //store data
     const product = new Product({
-        _batchno: new mongoose.Types.ObjectId(),
+        //_batchno: new mongoose.Types.ObjectId(),
         madeof: req.body.madeof,
         type: req.body.type
     });
@@ -29,18 +29,18 @@ router.post('/', (req, res, next) => {
     });
 });
 
-router.patch('/:productId', (req, res, next) => {
+router.get('/:productId', (req, res, next) => {
     const id = req.params.productId;
-    if(id === 'special'){
-        res.status(200).json({
-            message:'You discovered the special ID',
-            id: id
+    Product.findById(id)
+        .exec()
+        .then(doc => {
+            console.log(doc);
+            res.status(200).json(doc);
+        })
+        .catch(error => {
+            console.log(error);
+            res.status(500).json({error: error});
         });
-    }   else{
-            res.status(200).json({
-                message: 'You passed an ID'
-            });
-        }
 });
 
 router.patch('/:productId', (req, res, next) => {
